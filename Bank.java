@@ -3,7 +3,9 @@
 // git config --global user.name ""
 // git config --global user.email ""
 
-// git init
+// git init             deze twee in een folder zonder git
+// git clone [link]
+
 // git status
 // git log
 // git add .                . = alles
