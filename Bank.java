@@ -21,3 +21,9 @@
 // git push -u origin master    -u geeft aan vanaf nu altijd naar origin master
 
 // git pull origin master
+
+public class Bank{
+    public static void main(String[] args) {
+        
+    }
+}
