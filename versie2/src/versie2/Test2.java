@@ -1,8 +1,13 @@
 package versie2;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.TimeUnit;
 
-class Test2 extends Thread{
+import javax.swing.JPanel;
+
+class Test2 extends Test{
 
     //Create global variables
 	private Test as;
@@ -29,15 +34,16 @@ class Test2 extends Thread{
     }
     
     public void run() {
-    	Billchoices();
+    	
+}
     
-
-    }
+    
     
     //Method to display the Welcome screen and get input from the card reader and keypad.
     private void Welcome() {
     	as.displayPanel("Welcome");
         
+    	
     }
     
     //Method to get the pincode and give it to the server which will check if the correct information is given
