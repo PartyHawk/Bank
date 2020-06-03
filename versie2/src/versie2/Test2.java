@@ -1,4 +1,4 @@
-package versie2;
+/*package versie2;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -103,7 +103,7 @@ class Test2 extends Test{
     private void Thanks() {
     	as.displayPanel("Thanks");
     	
-    	/*try{
+    	try{
             Thread.sleep(1500);
         }
         catch(InterruptedException e){
@@ -116,9 +116,8 @@ class Test2 extends Test{
     	pinLength = 0;
     	amount = "";
     	
-        Welcome(); */
+        Welcome(); 
     }
     
 }
-
-//
+*/
