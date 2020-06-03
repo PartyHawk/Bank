@@ -98,23 +98,23 @@ public class Test extends JFrame{
     
     
 	public Test() {
-super("De Bank");
+		super("De Bank");
 
-setContentPane(screenPanel);
-setResizable(false);
-setAlwaysOnTop(true);
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-setSize(1450, 800);
-setUndecorated(true);;
-getContentPane().setLayout(null);
+		setContentPane(screenPanel);
+		setResizable(false);
+		setAlwaysOnTop(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1450, 800);
+		setUndecorated(true);;
+		getContentPane().setLayout(null);
 
 
-dateLabel.setForeground(Color.ORANGE);
-dateLabel.setFont(new Font("Arial", Font.BOLD, 36));
-dateLabel.setBounds(1100, 70, 280, 70);
-getContentPane().add(dateLabel);
+		dateLabel.setForeground(Color.ORANGE);
+		dateLabel.setFont(new Font("Arial", Font.BOLD, 36));
+		dateLabel.setBounds(1100, 70, 280, 70);
+		getContentPane().add(dateLabel);
 
-TimerTask repeatedTask = new TimerTask() {
+		TimerTask repeatedTask = new TimerTask() {
 	        public void run() {
 	        	LocalDateTime localDateTime = LocalDateTime.now();  
 	            
@@ -134,7 +134,7 @@ TimerTask repeatedTask = new TimerTask() {
 	    
 	    layeredPane.setBounds(0, 0, 1450, 800);
 	    screenPanel.add(layeredPane);
-layeredPane.setLayout(new CardLayout(0, 0));
+	    layeredPane.setLayout(new CardLayout(0, 0));
 	    
 	
 
@@ -212,10 +212,10 @@ layeredPane.setLayout(new CardLayout(0, 0));
 	btnAbort.setBounds(130, 500, 230, 80);
 	PinCode.add(btnAbort);
 	btnAbort.addActionListener(new ActionListener() {
-public void actionPerformed(ActionEvent e) {
-	SwitchPanels(Welcome);
-	}	
-});
+		public void actionPerformed(ActionEvent e) {
+			SwitchPanels(Welcome);
+			}	
+		});
 	
 	//button_9.setIcon(new ImageIcon(Test.class.getResource("/img/Image 045.jpg")));
 	btnTaal.setFont(new Font("Arial", Font.PLAIN, 25));
