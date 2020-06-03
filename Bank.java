@@ -24,19 +24,22 @@
 
 public class Bank{
     public static void main(String[] args) {
-        SQLCon sql = new SQLCon();
-        sql.test();
+        // SQLCon sql = new SQLCon();
+        // sql.test();
 
-        // biljetOpties bO = new biljetOpties(10, 10, 20);
-        // 
-        // int[][] opties = bO.getOpties(120);
-        // int i = 0;
-        // while(opties[0][i] != 0 || opties[1][i] != 0 || opties[2][i] != 0){
-        //     System.out.println("Optie " + (i +1));
-        //     System.out.println("\t50: " + opties[0][i]);
-        //     System.out.println("\t20: " + opties[1][i]);
-        //     System.out.println("\t10: " + opties[2][i]);
-        //     i++;
-        // }
+        biljetOpties bO = new biljetOpties(10, 10, 20);
+        
+        int[][] opties = bO.getOpties(120);
+        if(opties == null){
+            System.out.println("Ongeldig bedrag");
+        }
+        int i = 0;
+        while(opties[0][i] != 0 || opties[1][i] != 0 || opties[2][i] != 0){
+            System.out.println("Optie " + (i +1));
+            System.out.println("\t50: " + opties[0][i]);
+            System.out.println("\t20: " + opties[1][i]);
+            System.out.println("\t10: " + opties[2][i]);
+            i++;
+        }
     }
 }
