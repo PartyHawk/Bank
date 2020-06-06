@@ -67,6 +67,7 @@ public class Test extends JFrame{
     private JButton btnAbort4 = new JButton("Abort");
   //Custom Amount Screen
     private JButton btnHome4 = new JButton("Home");
+    private JTextField custom = new JTextField(100000);
     private JLabel PEA = new JLabel("Please enter an amount", SwingConstants.CENTER);
     private JButton btnContinue = new JButton("Continue");
     private JButton btnClear = new JButton("Clear");
@@ -415,7 +416,7 @@ public class Test extends JFrame{
 	name.setBounds(0, 50, 1450, 150);
 	Home.add(name);
 	
-	option.setForeground(new Color(224, 255, 255));
+	option.setForeground(Color.BLACK);
 	option.setFont(new Font("Arial", Font.PLAIN, 70));
 	option.setBounds(0, 300, 1450, 113);
 	Home.add(option);
@@ -574,7 +575,7 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	balance.setForeground(new Color(224, 255, 255));
+	balance.setForeground(Color.BLACK);
 	balance.setHorizontalAlignment(SwingConstants.RIGHT);
 	balance.setFont(new Font("Arial", Font.PLAIN, 50));
 	balance.setBounds(650, 250, 100, 55);
@@ -586,12 +587,12 @@ public class Test extends JFrame{
 	lblAccount_1.setBounds(650, 350, 100, 55);
 	Balance.add(lblAccount_1);
 	
-	lblBalance.setForeground(new Color(224, 255, 255));
+	lblBalance.setForeground(Color.BLACK);
 	lblBalance.setFont(new Font("Arial", Font.PLAIN, 50));
 	lblBalance.setBounds(450, 250, 300, 55);
 	Balance.add(lblBalance);
 	
-	lblAccount.setForeground(new Color(224, 255, 255));
+	lblAccount.setForeground(Color.BLACK);
 	lblAccount.setFont(new Font("Arial", Font.PLAIN, 50));
 	lblAccount.setBounds(450, 300, 300, 47);
 	Balance.add(lblAccount);
@@ -669,12 +670,12 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	lblPleaseSelectAn.setForeground(new Color(224, 255, 255));
+	lblPleaseSelectAn.setForeground(Color.BLACK);
 	lblPleaseSelectAn.setFont(new Font("Arial", Font.PLAIN, 70));
 	lblPleaseSelectAn.setBounds(0, 200, 1450, 113);
 	Withdrawal.add(lblPleaseSelectAn);
 	
-	lblPressDTo.setForeground(new Color(224, 255, 255));
+	lblPressDTo.setForeground(Color.BLACK);
 	lblPressDTo.setHorizontalAlignment(SwingConstants.CENTER);
 	lblPressDTo.setFont(new Font("Arial", Font.ITALIC, 40));
 	lblPressDTo.setBounds(0, 300, 1450, 131);
@@ -738,9 +739,10 @@ public class Test extends JFrame{
     layeredPane.add(CustAmount, "name_283576729940309");
     CustAmount.setLayout(null);
     
-    AmountPanel.setBounds(400, 400, 600, 100);
-    AmountPanel.setLayout(null);
-    CustAmount.add(AmountPanel);
+    custom.setFont(new Font("Lucida Grande", Font.BOLD, 30));
+	custom.setBounds(650,400,200,50);
+	CustAmount.add(custom);
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     btnHome4.setForeground(Color.BLACK);
     btnHome4.setBackground(new Color(255, 51, 51));
@@ -753,11 +755,7 @@ public class Test extends JFrame{
 			}	
 		});
     
-    label_15.setBounds(0, 0, 600, 100);
-    AmountPanel.add(label_15);
-    label_15.setHorizontalAlignment(SwingConstants.LEADING);
-    label_15.setFont(new Font("Arial", Font.PLAIN, 70));
-    
+   
     JLabel name4 = new JLabel("De Bank", SwingConstants.CENTER);
     name4.setForeground(new Color(100, 149, 237));
     name4.setFont(new Font("Arial", Font.PLAIN, 99));
@@ -790,7 +788,7 @@ public class Test extends JFrame{
     Hash4.setBounds(30, 600, 75, 75);
     CustAmount.add(Hash4);
     
-    PEA.setForeground(new Color(224, 255, 255));
+    PEA.setForeground(Color.BLACK);
     PEA.setFont(new Font("Arial", Font.PLAIN, 70));
     PEA.setBounds(0, 250, 1450, 113);
     CustAmount.add(PEA);
@@ -819,10 +817,10 @@ public class Test extends JFrame{
     		}	
 	    });
     
-    lblAmount.setForeground(new Color(224, 255, 255));
+    lblAmount.setForeground(Color.BLACK);
     lblAmount.setFont(new Font("Arial", Font.PLAIN, 30));
-    lblAmount.setBackground(new Color(224, 255, 255));
-    lblAmount.setBounds(500, 350, 150, 40);
+    lblAmount.setBackground(Color.BLACK);
+    lblAmount.setBounds(500, 400, 150, 40);
     CustAmount.add(lblAmount);
     
     
