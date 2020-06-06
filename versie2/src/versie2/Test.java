@@ -23,10 +23,6 @@ public class Test extends JFrame{
     private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("E, MMM dd yyyy");  
     private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
     private Timer timer = new Timer("Timer");	
-    private JLabel lblPin1 = new JLabel("x            ", SwingConstants.CENTER);
-    private JLabel lblPin2 = new JLabel("   x       ", SwingConstants.CENTER);
-    private JLabel lblPin3 = new JLabel("       x   ", SwingConstants.CENTER);
-    private JLabel lblPin4 = new JLabel("            x", SwingConstants.CENTER);
     private JLabel Attempt = new JLabel("Attempts left: #");
     private int clientBalance;
     private JLabel balance = new JLabel("\u20AC " + clientBalance);
@@ -37,19 +33,19 @@ public class Test extends JFrame{
     private JLabel error = new JLabel("Please contact your bank", SwingConstants.CENTER);
     private Boolean Language = true;
     private String amount = "";
-   
-    
     
     
     //welcome scherm
     JButton next = new JButton("Next Screen");
-    private JLabel lblInsertCard = new JLabel("Please Insert Your Card", SwingConstants.CENTER);
+    private JLabel lblInsertCard = new JLabel("Welcome by de bank", SwingConstants.CENTER);
     //inlog scherm
     private JButton btnContinue_1 = new JButton("Continue");
+    private JTextField userText = new JTextField(6);
+    private JPasswordField passwordText = new JPasswordField(6);
     private JButton btnClear_1 = new JButton("Clear");
     private JButton btnAbort = new JButton("Abort");
     private JButton btnTaal = new JButton("Change Language");
-    private JLabel lblInsertPin = new JLabel("Please Insert Your Pin Code", SwingConstants.CENTER);
+    private JLabel lblInsertPin = new JLabel("Please login", SwingConstants.CENTER);
     //Home Screen
     private JLabel option = new JLabel("Please select an option", SwingConstants.CENTER);
     private JButton btnBalance = new JButton("Balance");
@@ -139,8 +135,6 @@ public class Test extends JFrame{
 	
 
 	//Welcome screen
-	   
-
 	Welcome.setBounds(0, 0, 1450, 800);
 	layeredPane.add(Welcome, "name_283576622166910");
 	Welcome.setLayout(null);
@@ -148,7 +142,7 @@ public class Test extends JFrame{
 	JLabel label_D = new JLabel("D", SwingConstants.CENTER);
 	label_D.setOpaque(true);
 	label_D.setForeground(Color.WHITE);
-	label_D.setFont(new Font("Arial", Font.PLAIN, 40));
+	label_D.setFont(new Font("Arial", Font.PLAIN, 50));
 	label_D.setBackground(Color.LIGHT_GRAY);
 	label_D.setBounds(1300, 700, 75, 75);
 	Welcome.add(label_D);
@@ -167,19 +161,7 @@ public class Test extends JFrame{
 	lblInsertCard.setBounds(450, 170, 600, 200);
 	Welcome.add(lblInsertCard);
 	lblInsertCard.setFont(new Font("Arial", Font.PLAIN, 50));
-	lblInsertCard.setForeground(Color.CYAN);
-	
-	JLabel lblNfc = new JLabel("NFC LOGO");
-	//lblNfc.setIcon(new ImageIcon(Test.class.getResource("/img/NFC.png")));
-	lblNfc.setBounds(700, 400, 150, 100);
-	Welcome.add(lblNfc);
-	
-	JLabel lblNewLabel = new JLabel("LOGO", SwingConstants.CENTER);
-	lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
-	lblNewLabel.setBounds(650, 80, 150, 100);
-	Welcome.add(lblNewLabel);
-	   
-	
+	lblInsertCard.setForeground(Color.RED);
 	
 	//PinCode
 	PinCode.setBounds(0, 0, 1450, 800);
@@ -194,17 +176,16 @@ public class Test extends JFrame{
 	PinCode.add(btnContinue_1);
 	btnContinue_1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			if(passwordText.getText().equals("4763") && userText.getText().equals("chenyen")) {
+			
 			SwitchPanels(Home);
-			}	
+			}
+			else {
+				SwitchPanels(WaitingScreen);
+			}
+			
+		}
 		});	
-	
-	btnClear_1.setForeground(Color.BLACK);
-	btnClear_1.setFont(new Font("Arial", Font.PLAIN, 25));
-	btnClear_1.setFocusPainted(false);
-	btnClear_1.setBackground(Color.BLACK);
-	btnClear_1.setBounds(1050, 500, 230, 80);
-	PinCode.add(btnClear_1);
-	///////////////////////////////////////////////////////////////////////////////////////////
 
 	btnAbort.setForeground(Color.BLACK);
 	btnAbort.setFont(new Font("Arial", Font.PLAIN, 25));
@@ -217,12 +198,12 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	//button_9.setIcon(new ImageIcon(Test.class.getResource("/img/Image 045.jpg")));
 	btnTaal.setFont(new Font("Arial", Font.PLAIN, 25));
 	btnTaal.setFocusPainted(false);
 	btnTaal.setBounds(1050, 700, 230, 80);
 	PinCode.add(btnTaal);
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	JLabel label_A = new JLabel("A", SwingConstants.CENTER);
 	label_A.setOpaque(true);
 	label_A.setForeground(Color.WHITE);
@@ -230,16 +211,6 @@ public class Test extends JFrame{
 	label_A.setBackground(Color.LIGHT_GRAY);
 	label_A.setBounds(1300, 400, 75, 75);
 	PinCode.add(label_A);
-
-
-	JLabel label_28 = new JLabel("B", SwingConstants.CENTER);
-	label_28.setOpaque(true);
-	label_28.setForeground(Color.WHITE);
-	label_28.setFont(new Font("Arial", Font.PLAIN, 40));
-	label_28.setBackground(Color.LIGHT_GRAY);
-	label_28.setBounds(1300, 500, 75, 75);
-	PinCode.add(label_28);
-	//PinCode.add(label_29);
 
 	JLabel label_30 = new JLabel("D", SwingConstants.CENTER);
 	label_30.setOpaque(true);
@@ -258,61 +229,38 @@ public class Test extends JFrame{
 	label_31.setBounds(30, 500, 75, 75);
 	PinCode.add(label_31);
 	
-	
-	
 	lblInsertPin.setFont(new Font("Arial", Font.PLAIN, 70));
 	lblInsertPin.setBounds(0, 100, 1450, 194);
 	lblInsertPin.setForeground(Color.RED);
 	PinCode.add(lblInsertPin);
 	
+	JLabel namelabel = new JLabel("User ID: ");
+	namelabel.setForeground(Color.BLACK);
+	namelabel.setFont(new Font("Arial", Font.PLAIN, 30));
+	namelabel.setBounds(350, 300, 150, 50);
+	PinCode.add(namelabel);
 	
-	lblPin1.setForeground(new Color(255, 255, 255));
-	lblPin1.setFont(new Font("Arial", Font.PLAIN, 70));
-	lblPin1.setBounds(0, 180, 1450, 230);
-	PinCode.add(lblPin1);
-	lblPin1.setVisible(false);
+	JLabel passwordLabel = new JLabel("Password: ");
+	passwordLabel.setForeground(Color.BLACK);
+	passwordLabel.setFont(new Font("Arial", Font.PLAIN, 30));
+	passwordLabel.setBounds(350, 400, 150, 50);
+	PinCode.add(passwordLabel);
 	
-	lblPin2.setForeground(new Color(255, 255, 255));
-	lblPin2.setFont(new Font("Arial", Font.PLAIN, 70));
-	lblPin2.setBounds(0, 180, 1450, 230);
-	PinCode.add(lblPin2);
-	lblPin2.setVisible(false);
+	passwordText.setFont(new Font("Lucida Grande", Font.BOLD, 30));
+	passwordText.setBounds(600,400,200,50);
+	PinCode.add(passwordText);
 	
-	
-
-	lblPin3.setForeground(new Color(255, 255, 255));
-	lblPin3.setFont(new Font("Arial", Font.PLAIN, 70));
-	lblPin3.setBounds(0, 180, 1450, 230);
-	PinCode.add(lblPin3);
-	lblPin3.setVisible(false);
-	
-	lblPin4.setForeground(new Color(255, 255, 255));
-	lblPin4.setFont(new Font("Arial", Font.PLAIN, 70));
-	lblPin4.setBounds(0, 180, 1450, 230);
-	PinCode.add(lblPin4);
-	lblPin4.setVisible(false);
-	
-	JLabel lblUnderScore = new JLabel("_  _  _  _", SwingConstants.CENTER);
-	lblUnderScore.setForeground(new Color(255, 255, 255));
-	lblUnderScore.setFont(new Font("Arial", Font.PLAIN, 70));
-	lblUnderScore.setBounds(0, 200, 1450, 230);
-	PinCode.add(lblUnderScore);
+	userText.setFont(new Font("Lucida Grande", Font.BOLD, 30));
+	userText.setBounds(600, 300, 200, 50);
+	PinCode.add(userText);
 	
 	Attempt.setForeground(Color.RED);
 	Attempt.setFont(new Font("Arial", Font.PLAIN, 50));
-	Attempt.setHorizontalAlignment(SwingConstants.CENTER);
-	Attempt.setBounds(0, 497, 1450, 100);
+	Attempt.setBounds(500, 550, 400, 100);
 	PinCode.add(Attempt);
-	
-	JLabel lblBackground = new JLabel("Background");
-	lblBackground.setBounds(700,0,1450, 800);
-	PinCode.add(lblBackground);
-	//lblBackground.setIcon(new ImageIcon(Test.class.getResource("/img/PinCodeBG.jpg")));
-	lblBackground.setOpaque(true);
-	
 	   
-	//Bill choice
 	
+	//Bill choice
 	Bills.setBounds(0, 0, 1450, 800);
 	layeredPane.add(Bills, "name_283576656510015");
 	Bills.setLayout(null);
@@ -409,7 +357,6 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	
 	JLabel lblBackground2 = new JLabel("Background");
 	lblBackground2.setBounds(700, 400, 100, 50);
 	Bills.add(lblBackground2);
@@ -462,13 +409,11 @@ public class Test extends JFrame{
 	Asterisk.setBounds(30, 500, 75, 75);
 	Home.add(Asterisk);
 	
-	
 	JLabel name = new JLabel("De Bank", SwingConstants.CENTER);
 	name.setForeground(new Color(100, 149, 237));
 	name.setFont(new Font("Arial", Font.PLAIN, 99));
 	name.setBounds(0, 50, 1450, 150);
 	Home.add(name);
-	
 	
 	option.setForeground(new Color(224, 255, 255));
 	option.setFont(new Font("Arial", Font.PLAIN, 70));
@@ -526,7 +471,6 @@ public class Test extends JFrame{
 	   
 	
 	//Balance
-	
 	Balance.setBounds(0, 0, 1450, 800);
 	layeredPane.add(Balance, "name_283576692845461");
 	Balance.setLayout(null);
@@ -598,7 +542,6 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	
 	btnWithdrawal2.setFocusPainted(false);
 	btnWithdrawal2.setForeground(Color.BLACK);
 	btnWithdrawal2.setFont(new Font("Arial", Font.PLAIN, 25));
@@ -653,11 +596,6 @@ public class Test extends JFrame{
 	lblAccount.setBounds(450, 300, 300, 47);
 	Balance.add(lblAccount);
 	
-	JLabel BBG = new JLabel("BBG");
-	//BBG.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
-	BBG.setBounds(0, 0, 1450, 800);
-	Balance.add(BBG);
-	    
 	
 	//Withdrawal
 	Withdrawal.setBounds(0, 0, 1450, 800);
@@ -731,13 +669,10 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	JButton button = new JButton("\u20AC 20");
-	
 	lblPleaseSelectAn.setForeground(new Color(224, 255, 255));
 	lblPleaseSelectAn.setFont(new Font("Arial", Font.PLAIN, 70));
 	lblPleaseSelectAn.setBounds(0, 200, 1450, 113);
 	Withdrawal.add(lblPleaseSelectAn);
-	
 	
 	lblPressDTo.setForeground(new Color(224, 255, 255));
 	lblPressDTo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -745,6 +680,7 @@ public class Test extends JFrame{
 	lblPressDTo.setBounds(0, 300, 1450, 131);
 	Withdrawal.add(lblPressDTo);
 	
+	JButton button = new JButton("\u20AC 20");
 	button.setForeground(Color.BLACK);
 	button.setFont(new Font("Arial", Font.PLAIN, 25));
 	button.setFocusPainted(false);
@@ -794,22 +730,13 @@ public class Test extends JFrame{
 			SwitchPanels(Welcome);
 			}	
 		});
-	
-	JLabel WBG = new JLabel("BBG");
-	WBG.setBounds(700,0,1450,800);
-	//WBG.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
-	WBG.setOpaque(true);
-	Withdrawal.add(WBG);
-	
-	    
-	    
+
 	//Input custom amount screen
 	customAmount(amount);  
 	    
     CustAmount.setBounds(0, 0, 1450, 800);
     layeredPane.add(CustAmount, "name_283576729940309");
     CustAmount.setLayout(null);
-    
     
     AmountPanel.setBounds(400, 400, 600, 100);
     AmountPanel.setLayout(null);
@@ -837,15 +764,6 @@ public class Test extends JFrame{
     name4.setBounds(0, 50, 1450, 150);
     CustAmount.add(name4);
     
-    
-    JLabel OptB = new JLabel("B", SwingConstants.CENTER);
-    OptB.setOpaque(true);
-    OptB.setForeground(Color.BLACK);
-    OptB.setFont(new Font("Arial", Font.PLAIN, 40));
-    OptB.setBackground(Color.LIGHT_GRAY);
-    OptB.setBounds(1300, 500, 75, 75);
-    CustAmount.add(OptB);
-    
     JLabel OptC = new JLabel("C", SwingConstants.CENTER);
     OptC.setOpaque(true);
     OptC.setForeground(Color.BLACK);
@@ -854,7 +772,6 @@ public class Test extends JFrame{
     OptC.setBounds(1300, 600, 75, 75);
     CustAmount.add(OptC);
     
-
     JLabel OptAst = new JLabel("#", SwingConstants.CENTER);
     OptAst.setVerticalAlignment(SwingConstants.BOTTOM);
     OptAst.setOpaque(true);
@@ -878,7 +795,6 @@ public class Test extends JFrame{
     PEA.setBounds(0, 250, 1450, 113);
     CustAmount.add(PEA);
     
-    
     btnContinue.setForeground(Color.BLACK);
     btnContinue.setFont(new Font("Arial", Font.PLAIN, 25));
     btnContinue.setFocusPainted(false);
@@ -890,14 +806,6 @@ public class Test extends JFrame{
 			SwitchPanels(Receipt);
 			}	
 		});
-    
-    btnClear.setForeground(Color.BLACK);
-    btnClear.setFont(new Font("Arial", Font.PLAIN, 25));
-    btnClear.setFocusPainted(false);
-    btnClear.setBackground(new Color(255, 204, 51));
-    btnClear.setBounds(1050, 500, 230, 75);
-    CustAmount.add(btnClear);
-    ///////////////////////////////////////////////////////////////////////////////////////
     
     btnAbort5.setForeground(Color.BLACK);
     btnAbort5.setFont(new Font("Arial", Font.PLAIN, 25));
@@ -923,13 +831,6 @@ public class Test extends JFrame{
     lblNoteThisAtm.setBounds(500, 500, 600, 25);
 	CustAmount.add(lblNoteThisAtm);
 	    	
- 	JLabel CBG = new JLabel("BBG");
- 	//CBG.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
- 	CBG.setOpaque(true);
- 	CBG.setBounds(700, 0, 1450, 800);
- 	CustAmount.add(CBG);
-	    	
- 	
  	//WaitingScreen error
  	WaitingScreen.setBounds(0, 0, 1450, 800);
  	layeredPane.add(WaitingScreen, "name_283576748705653");
@@ -946,28 +847,11 @@ public class Test extends JFrame{
  	Check.setFont(new Font("Arial", Font.PLAIN, 60));
  	Check.setBounds(0, 300, 1450, 100);
  	WaitingScreen.add(Check);
-	    	
-	    	
-
+	    
  	error.setForeground(Color.BLACK);
     error.setFont(new Font("Arial", Font.PLAIN, 50));
     error.setBounds(0, 400, 1450, 100);
     WaitingScreen.add(error);
-	    
-	    
-    lblTransactionComplete.setHorizontalAlignment(SwingConstants.CENTER);
-    lblTransactionComplete.setForeground(Color.BLACK);
-    lblTransactionComplete.setFont(new Font("Arial", Font.PLAIN, 60));
-    lblTransactionComplete.setBounds(0, 300, 1450, 100);
-    WaitingScreen.add(lblTransactionComplete);
-	    	
-    JLabel WaitBG = new JLabel("BBG");
-    //WaitBG.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
-    WaitBG.setOpaque(true);
-    WaitBG.setBounds(700, 0, 1450, 800);
-    WaitingScreen.add(WaitBG);
-    WaitBG.setOpaque(true);
-	    
     
     // Receipt screen
 	Receipt.setBounds(0, 0, 1450, 800);
@@ -1030,13 +914,6 @@ public class Test extends JFrame{
 	Receiptyn.setFont(new Font("Arial", Font.PLAIN, 70));
 	Receiptyn.setBounds(0, 300, 1450, 86);
 	Receipt.add(Receiptyn);
-	    	
-	JLabel RBackG =  new JLabel();
-	//RBackG.setIcon(new ImageIcon(Test.class.getResource("/img/PinCodeBG.jpg")));
-	RBackG.setOpaque(true);
-	RBackG.setBounds(0, 0, 1450, 1080);
-	Receipt.add(RBackG);
-	    
 	
 	//End screen	
 	Thanks.setBounds(0, 0, 1450, 800);
@@ -1055,12 +932,6 @@ public class Test extends JFrame{
 	lblNiceday.setHorizontalAlignment(SwingConstants.CENTER);
 	lblNiceday.setBounds(0, 450, 1450, 81);
 	Thanks.add(lblNiceday);
-	    	
-	JLabel ThanksBG = new JLabel("BBG");
-	//ThanksBG.setIcon(new ImageIcon(Test.class.getResource("/img/ThanksBG.jpg")));
-	ThanksBG.setOpaque(true);
-	ThanksBG.setBounds(700, 0, 1450, 800);
-	Thanks.add(ThanksBG);
 	
 	setVisible(true);
 	
@@ -1077,53 +948,10 @@ public class Test extends JFrame{
     	error.setText(message);
     }
     
-    public void displayPin(int pinLength) {
-    	switch (pinLength) {
-    	case 1:
-    lblPin1.setVisible(true);
-
-    	break;
-    	
-    	case 2:
-    lblPin2.setVisible(true);
-
-    break;
-    
-    	case 3:
-    lblPin3.setVisible(true);
-
-    	break;
-    	
-    	case 4:
-    
-    lblPin4.setVisible(true);
-    	break;
-    }
-    }
-    
-    public void resetPin() {
-    	lblPin1.setVisible(false);
-    	lblPin2.setVisible(false);
-    	lblPin3.setVisible(false);
-    	lblPin4.setVisible(false);
-    }
-    
-    public void setTransactionVis(Boolean f) {
-    	lblTransactionComplete.setVisible(f);
-    }
-    
+   
     public void showBalanceAccount(String clientBalance, String account) {
     	balance.setText("\u20AC" + clientBalance);
     	lblAccount_1.setText(account);
-    }
-    
-    public void transactionStatus(Boolean status) {
-    	if(status) {
-    lblTransactionComplete.setText("Transaction Complete!");
-    	}
-    	if(!status) {
-    lblTransactionComplete.setText("Transaction Failed!");
-    	}
     }
     
     public void customAmount(String amount) {
@@ -1139,9 +967,7 @@ public class Test extends JFrame{
     Attempt.setText("Attempts used: " + attemptsLeft + "/3");
     	}
     }
-    
-
-    
+   
     public void changeLanguage() {
 
     	if(Language) {

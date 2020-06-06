@@ -1,6 +1,5 @@
 package versie2;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.swing.SwingUtilities;
