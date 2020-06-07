@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 
 public class Test extends JFrame{
 	
+	private Noob noob = new Noob();
+	
 	private Mailer mail = new Mailer();
 	private final String bankMail = "debank.bon@gmail.com";
 	private final String bankMailPass = "debank123";
@@ -212,6 +214,14 @@ public class Test extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			user = userText.getText();
 			String passwd = sql.getValue(user, "pincode");
+			
+			try {
+				String x = noob.phpverbinding("info|" + user + "|" + passwordText.getText(), "inloggen.php");
+			}
+			catch(Exception ec) {
+				ec.printStackTrace();
+			}
+			
 			if(passwordText.getText().equals(passwd) && sql.getValue(user, "blocked").equals("0")) {
 				sql.setValue(user, "fouten", "0");
 				savings = sql.getValue(user, "saldo");
@@ -845,14 +855,17 @@ public class Test extends JFrame{
     btnContinue.setBackground(new Color(0, 153, 51));
     btnContinue.setBounds(1050, 600, 230, 75);
     CustAmount.add(btnContinue);
+    
     btnContinue.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			
 			int a = Integer.parseInt(savings);
 			int b = Integer.parseInt(custom.getText());
 			
 			if(a >= b && options.getMax() >= b) {
 				bills = options.getOpties(b);
 				withdrawn = Integer.parseInt(custom.getText());
+				custom.setText("");
 				SwitchPanels(BiljetOpties);
 			}
 			else {
