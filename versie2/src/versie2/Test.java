@@ -23,13 +23,13 @@ public class Test extends JFrame{
     private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("E, MMM dd yyyy");  
     private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
     private Timer timer = new Timer("Timer");	
-    private JLabel Attempt = new JLabel("Attempts left: #");
+    private JLabel Attempt = new JLabel("Attempts left: ");
     private int clientBalance;
     private JLabel balance = new JLabel("\u20AC " + clientBalance);
     private String account;
     private JLabel lblAccount_1 = new JLabel(account);
     private JLabel lblTransactionComplete = new JLabel("", SwingConstants.CENTER);
-    private JLabel label_15 = new JLabel("");
+    private JLabel label_15 = new JLabel("\u20AC ");
     private JLabel error = new JLabel("Please contact your bank", SwingConstants.CENTER);
     private Boolean Language = true;
     private String amount = "";
@@ -256,6 +256,7 @@ public class Test extends JFrame{
 	PinCode.add(userText);
 	
 	Attempt.setForeground(Color.RED);
+	Attempt.setText("Attempts left:" );//////////////////////////////////////////////////////////
 	Attempt.setFont(new Font("Arial", Font.PLAIN, 50));
 	Attempt.setBounds(500, 550, 400, 100);
 	PinCode.add(Attempt);
@@ -358,12 +359,6 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	JLabel lblBackground2 = new JLabel("Background");
-	lblBackground2.setBounds(700, 400, 100, 50);
-	Bills.add(lblBackground2);
-	//lblBackground2.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
-	lblBackground2.setOpaque(true);
-	
 	JLabel choice = new JLabel("Please select a choice of bills", SwingConstants.CENTER);
 	choice.setForeground(Color.BLACK);
 	choice.setFont(new Font("Arial", Font.PLAIN, 70));
@@ -463,13 +458,6 @@ public class Test extends JFrame{
 			SwitchPanels(Welcome);
 			}	
 		});
-	
-	JLabel BlankBG = new JLabel("BlankBackGround");
-	BlankBG.setBounds(700,0,1450,800);
-	//BlankBG.setIcon(new ImageIcon(Test.class.getResource("/img/BlankBG.jpg")));
-	BlankBG.setOpaque(true);
-	Home.add(BlankBG);
-	   
 	
 	//Balance
 	Balance.setBounds(0, 0, 1450, 800);
@@ -576,6 +564,7 @@ public class Test extends JFrame{
 		});
 	
 	balance.setForeground(Color.BLACK);
+	balance.setText("\u20AC" );
 	balance.setHorizontalAlignment(SwingConstants.RIGHT);
 	balance.setFont(new Font("Arial", Font.PLAIN, 50));
 	balance.setBounds(650, 250, 100, 55);
@@ -733,8 +722,6 @@ public class Test extends JFrame{
 		});
 
 	//Input custom amount screen
-	customAmount(amount);  
-	    
     CustAmount.setBounds(0, 0, 1450, 800);
     layeredPane.add(CustAmount, "name_283576729940309");
     CustAmount.setLayout(null);
@@ -941,31 +928,6 @@ public class Test extends JFrame{
 		layeredPane.revalidate();
 	
 	}
-    
-    public void errorMessage(String message) {
-    	error.setText(message);
-    }
-    
-   
-    public void showBalanceAccount(String clientBalance, String account) {
-    	balance.setText("\u20AC" + clientBalance);
-    	lblAccount_1.setText(account);
-    }
-    
-    public void customAmount(String amount) {
-    	label_15.setText("\u20AC " + amount);
-    }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void loginAttempts(String attemptsLeft) {
-    	System.out.println(attemptsLeft);
-    	if(Language) {
-    Attempt.setText("Gebruikte pogingen: " + attemptsLeft + "/3");	
-    	}
-    	else if(!Language) {
-    Attempt.setText("Attempts used: " + attemptsLeft + "/3");
-    	}
-    }
-   
     public void changeLanguage() {
 
     	if(Language) {
