@@ -28,11 +28,9 @@ public class Test extends JFrame{
     private JLabel balance = new JLabel("\u20AC " + clientBalance);
     private String account;
     private JLabel lblAccount_1 = new JLabel(account);
-    private JLabel lblTransactionComplete = new JLabel("", SwingConstants.CENTER);
     private JLabel label_15 = new JLabel("\u20AC ");
     private JLabel error = new JLabel("Please contact your bank", SwingConstants.CENTER);
     private Boolean Language = true;
-    private String amount = "";
     
     
     //welcome scherm
