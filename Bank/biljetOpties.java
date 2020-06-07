@@ -10,6 +10,10 @@ public class biljetOpties {
         this.twintig = twintig;
         this.tien = tien;
     }
+    
+    public int getMax() {
+    	return (vijftig*50)+(twintig*20)+(tien*10);
+    }
 
     public int[][] getOpties(int bedrag){
         if(bedrag % 10 != 0) return null; //Bij een ongeldig bedrag null returnen
@@ -37,7 +41,7 @@ public class biljetOpties {
         }
 
         int count = 1;
-        while(count < 10){
+        while(count < 6){
             if(opties[0][count-1] > 0 && ((twintig > 1 && tien > 0) || (twintig > 0 && tien > 2) || tien > 4)){ //als er een vijftigje is die gesplitst kan worden
                 opties[0][count] = opties[0][count-1] - 1;
                 if(twintig > 1){

@@ -1,15 +1,18 @@
-import jeoma.hash;
+import java.net.URI;
+import java.net.URISyntaxException;
+import javax.swing.SwingUtilities;
 
 public class Bank {
 
-	public static void main(String[] args) {
-//		SQLCon sql = new SQLCon();
-//		sql.withdraw("OZ-DEBA-12547862", "10000");
-//		Mailer mail = new Mailer();
-//		mail.send("dubank.bonnetje@gmail.com","dubank123","pimvdtoorn@hotmail.com","test","test");  
-		
-		hash hash = new hash();
-		System.out.println(hash.getHash("1235"));
+	public static void main(String[] args) throws URISyntaxException{
+		SwingUtilities.invokeLater(new Runnable(){
+			SQLCon sql = new SQLCon();
+			
+            public void run() {
+            	Test myATM = new Test(sql);
+            	myATM.setVisible(true);
+            }
+		});
 	}
 
 }

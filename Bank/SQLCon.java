@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Properties;
 
 public class SQLCon {
 	private Connection con;
@@ -8,9 +9,12 @@ public class SQLCon {
     public SQLCon() {
     	try {
     		Class.forName("com.mysql.cj.jdbc.Driver");
-    		 
-            con = DriverManager.getConnection("jdbc:mysql://localhost/debank?user=root&password=");
-            //("jdbc:mysql://145.24.222.152:22/root//debank", "ubuntu-0984053", "T49z56");
+    		
+    		Properties p = new Properties();
+    		p.put("user", "root");
+    		p.put("password", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/debank", p);
+            //145.24.222.152:22
             
             stmt = con.createStatement();
 
@@ -69,8 +73,7 @@ public class SQLCon {
     	}
     }
     
-    public void withdraw(String klantnummer, String value) { 
-    	//pincode??
+    public void withdraw(String klantnummer, int value) { 
     	try {
     		String query = "UPDATE `persoonlijkeinfo` SET saldo = (saldo - " + value + ") WHERE  klantnummer = '" + klantnummer;
     		stmt.executeUpdate(query + "'");
@@ -82,8 +85,14 @@ public class SQLCon {
     
     public void addFout(String klantnummer) {
     	try {
-    		String query = "UPDATE `persoonlijkeinfo` SET fouten = (fouten + 1) WHERE  klantnummer = '" + klantnummer;
-    		stmt.executeUpdate(query + "'");
+    		if(Integer.parseInt(getValue(klantnummer, "fouten")) >= 3) {
+    			setBlocked(klantnummer, "1");
+    		} 
+    		else {
+    			String query = "UPDATE `persoonlijkeinfo` SET fouten = (fouten + 1) WHERE  klantnummer = '" + klantnummer;
+    			stmt.executeUpdate(query + "'");
+    		}
+    		
     	}
     	catch(Exception e) {
     		e.printStackTrace();
