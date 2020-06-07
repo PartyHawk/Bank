@@ -1,2 +1,50 @@
-mysql verbinden
-email verzenden
+//https://git-scm.com/downloads
+
+// git config --global user.name "Pim"
+// git config --global user.email "Je@oma.nl"
+
+// git init             deze twee in een folder zonder git
+// git clone [link]
+
+// git status
+// git log
+// git add .                . = alles
+// git commit -m "hoi"
+
+// git checkout [hash] 
+// git checkout -b [name]   checkout to an new branch
+// git branch <name>        geen naam geeft lijst, -d voor delete
+
+
+// git remote -v            alleremotes
+// git remote add [naam] [link]
+// git push -u [naam remote] [naam branch]    -u geeft aan vanaf nu altijd naar origin master
+
+// git pull [naam remote] [naam branch]
+
+#SELECT pincode FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de pincode van klant x
+#SELECT saldo FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de saldo van klant x
+#SELECT email FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de email van klant x
+#SELECT fouten FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de fouten van klant x
+#SELECT blocked FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de blocked van klant x
+#SELECT Voornaam FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de saldo van klant x
+#SELECT Achternaam FROM persoonlijkeinfo WHERE klantnummer = 'x';
+#^^^selecter de saldo van klant x
+
+UPDATE `persoonlijkeinfo` SET fouten = (fouten + 1) WHERE  klantnummer = 'x';
+#^^^ adds a fout bij klant x
+
+UPDATE `persoonlijkeinfo` SET `fouten`='0' WHERE  klantnummer = 'OZ-DEBA-12547862';
+#^^^ ressets fout bij klant x
+
+UPDATE `persoonlijkeinfo` SET blocked = (blocked + 1) WHERE  klantnummer = 'x';
+#^^^ blocked bij klant x
+
+UPDATE `persoonlijkeinfo` SET saldo = (saldo - y) WHERE  klantnummer = 'x';
+#^^^ trekt saldo af bij klant x

@@ -5,8 +5,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="mysql-connector-java-8.0.20.jar"/>
 	<classpathentry kind="lib" path="D:/laptop/documents/Lessen_jaar_1/Project_3_Bank/lib/activation.jar"/>
 	<classpathentry kind="lib" path="D:/laptop/documents/Lessen_jaar_1/Project_3_Bank/lib/mail.jar"/>
+	<classpathentry kind="lib" path="D:/laptop/documents/Lessen_jaar_1/Project_3_Bank/lib/jsch-0.1.55.jar"/>
+	<classpathentry kind="lib" path="D:/laptop/documents/Lessen_jaar_1/Project_3_Bank/lib/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
