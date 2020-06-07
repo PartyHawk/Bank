@@ -23,7 +23,9 @@ public class Test extends JFrame{
     private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("E, MMM dd yyyy");  
     private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
     private Timer timer = new Timer("Timer");	
+
     private JLabel Attempt = new JLabel("Attempts left: ");
+
     private int clientBalance;
     private JLabel balance = new JLabel("\u20AC " + clientBalance);
     private String account;
@@ -31,11 +33,15 @@ public class Test extends JFrame{
     private JLabel label_15 = new JLabel("\u20AC ");
     private JLabel error = new JLabel("Please contact your bank", SwingConstants.CENTER);
     private Boolean Language = true;
+    private String amount = "";
+   
     
     
     //welcome scherm
     JButton next = new JButton("Next Screen");
+
     private JLabel lblInsertCard = new JLabel("Welcome by de bank", SwingConstants.CENTER);
+
     //inlog scherm
     private JButton btnContinue_1 = new JButton("Continue");
     private JTextField userText = new JTextField(6);
@@ -44,6 +50,7 @@ public class Test extends JFrame{
     private JButton btnAbort = new JButton("Abort");
     private JButton btnTaal = new JButton("Change Language");
     private JLabel lblInsertPin = new JLabel("Please login", SwingConstants.CENTER);
+
     //Home Screen
     private JLabel option = new JLabel("Please select an option", SwingConstants.CENTER);
     private JButton btnBalance = new JButton("Balance");
@@ -122,7 +129,7 @@ public class Test extends JFrame{
 	    timeLabel.setBounds(1200, 5, 163, 109);
 	    screenPanel.add(timeLabel);
 	    
-	    
+
 	    timeLabel.setForeground(Color.ORANGE);
 	    timeLabel.setFont(new Font("Arial", Font.BOLD, 36));
 	    
@@ -754,7 +761,7 @@ public class Test extends JFrame{
     OptC.setBackground(Color.LIGHT_GRAY);
     OptC.setBounds(1300, 600, 75, 75);
     CustAmount.add(OptC);
-    
+
     JLabel OptAst = new JLabel("#", SwingConstants.CENTER);
     OptAst.setVerticalAlignment(SwingConstants.BOTTOM);
     OptAst.setOpaque(true);
@@ -773,6 +780,7 @@ public class Test extends JFrame{
     Hash4.setBounds(30, 600, 75, 75);
     CustAmount.add(Hash4);
     
+
     PEA.setForeground(Color.BLACK);
     PEA.setFont(new Font("Arial", Font.PLAIN, 70));
     PEA.setBounds(0, 250, 1450, 113);
@@ -926,6 +934,7 @@ public class Test extends JFrame{
 		layeredPane.revalidate();
 	
 	}
+
     public void changeLanguage() {
 
     	if(Language) {
