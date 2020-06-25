@@ -215,15 +215,16 @@ public class Test extends JFrame{
 			user = userText.getText();
 			String passwd = sql.getValue(user, "pincode");
 			
-			try {
-				String x = noob.phpverbinding("info|" + user + "|" + passwordText.getText(), "inloggen.php");
-			}
-			catch(Exception ec) {
-				ec.printStackTrace();
-			}
-			
+//			try {
+//				String x = noob.phpverbinding("info|" + user + "|" + passwordText.getText(), "inloggen.php");
+//			}
+//			catch(Exception ec) {
+//				ec.printStackTrace();
+//			}
+//			
 			if(passwordText.getText().equals(passwd) && sql.getValue(user, "blocked").equals("0")) {
 				sql.setValue(user, "fouten", "0");
+				PinCode.remove(Attempt);
 				savings = sql.getValue(user, "saldo");
 				balance.setText("\u20AC" + savings);
 				userName = sql.getValue(user, "Voornaam");
@@ -236,7 +237,7 @@ public class Test extends JFrame{
 				sql.addFout(userText.getText());
 				attempts = 3 - Integer.parseInt(sql.getValue(user, "fouten"));
 				SwitchPanels(WaitingScreen);
-				userText.setText("");
+//				userText.setText("");
 				passwordText.setText("");
 				
 				Attempt.setForeground(Color.RED);
@@ -410,6 +411,7 @@ public class Test extends JFrame{
 	btnAbort2.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			SwitchPanels(Welcome);
+			userText.setText("");
 			}	
 		});
 	
@@ -627,6 +629,7 @@ public class Test extends JFrame{
 	btnAbort3.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			SwitchPanels(Welcome);
+			userText.setText("");
 			}	
 		});
 	
@@ -786,6 +789,7 @@ public class Test extends JFrame{
 	btnAbort4.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			SwitchPanels(Welcome);
+			userText.setText("");
 			}	
 		});
 
