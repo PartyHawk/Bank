@@ -46,7 +46,7 @@ public class Test extends JFrame{
     private String account;
     private JLabel lblAccount_1 = new JLabel(account);
     private JLabel label_15 = new JLabel("\u20AC ");
-    private JLabel error = new JLabel("Please contact your bank", SwingConstants.CENTER);
+    private JLabel error = new JLabel("The user ID and/or pin is incorrect", SwingConstants.CENTER);
     private Boolean Language = true;
     private String amount = "";
    
@@ -63,7 +63,7 @@ public class Test extends JFrame{
     private JPasswordField passwordText = new JPasswordField(6);
     private JButton btnClear_1 = new JButton("Clear");
     private JButton btnAbort = new JButton("Abort");
-    private JButton btnTaal = new JButton("Change Language");
+//    private JButton btnTaal = new JButton("Change Language");
     private JLabel lblInsertPin = new JLabel("Please login", SwingConstants.CENTER);
 
     //Home Screen
@@ -265,10 +265,10 @@ public class Test extends JFrame{
 			}	
 		});
 	
-	btnTaal.setFont(new Font("Arial", Font.PLAIN, 25));
-	btnTaal.setFocusPainted(false);
-	btnTaal.setBounds(1050, 700, 230, 80);
-	PinCode.add(btnTaal);
+//	btnTaal.setFont(new Font("Arial", Font.PLAIN, 25));
+//	btnTaal.setFocusPainted(false);
+//	btnTaal.setBounds(1050, 700, 230, 80);
+//	PinCode.add(btnTaal);
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	JLabel label_A = new JLabel("A", SwingConstants.CENTER);
@@ -279,13 +279,13 @@ public class Test extends JFrame{
 	label_A.setBounds(1300, 400, 75, 75);
 	PinCode.add(label_A);
 
-	JLabel label_30 = new JLabel("D", SwingConstants.CENTER);
-	label_30.setOpaque(true);
-	label_30.setForeground(Color.WHITE);
-	label_30.setFont(new Font("Arial", Font.PLAIN, 40));
-	label_30.setBackground(Color.LIGHT_GRAY);
-	label_30.setBounds(1300, 700, 75, 75);
-	PinCode.add(label_30);	
+//	JLabel label_30 = new JLabel("D", SwingConstants.CENTER);
+//	label_30.setOpaque(true);
+//	label_30.setForeground(Color.WHITE);
+//	label_30.setFont(new Font("Arial", Font.PLAIN, 40));
+//	label_30.setBackground(Color.LIGHT_GRAY);
+//	label_30.setBounds(1300, 700, 75, 75);
+//	PinCode.add(label_30);	
 	
 	JLabel label_31 = new JLabel("#", SwingConstants.CENTER);
 	label_31.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -873,7 +873,7 @@ public class Test extends JFrame{
 				SwitchPanels(BiljetOpties);
 			}
 			else {
-				SwitchPanels(WaitingScreen);
+//				SwitchPanels(WaitingScreen);
 			}
 		}	
 	});
@@ -897,7 +897,7 @@ public class Test extends JFrame{
     CustAmount.add(lblAmount);
     
     
-    lblNoteThisAtm.setForeground(new Color(255, 255, 255));
+    lblNoteThisAtm.setForeground(new Color(0, 0, 0));
     lblNoteThisAtm.setFont(new Font("Arial", Font.PLAIN, 20));
     lblNoteThisAtm.setBounds(500, 500, 600, 25);
 	CustAmount.add(lblNoteThisAtm);
@@ -932,7 +932,7 @@ public class Test extends JFrame{
  	name5.setBounds(0, 50, 1450, 150);
  	WaitingScreen.add(name5);
 	    	
- 	JLabel Check = new JLabel(" Something went wrong.", SwingConstants.CENTER);
+ 	JLabel Check = new JLabel(" Invalid credentials", SwingConstants.CENTER);
  	Check.setForeground(Color.BLACK);
  	Check.setFont(new Font("Arial", Font.PLAIN, 60));
  	Check.setBounds(0, 300, 1450, 100);
