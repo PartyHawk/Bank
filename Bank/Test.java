@@ -789,7 +789,7 @@ public class Test extends JFrame{
 	btnAbort4.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			SwitchPanels(Welcome);
-			userText.setText("");
+			lblNoteThisAtm.setText("NOTE: This ATM only returns 10, 20 and 50 euro bills.");
 			}	
 		});
 
@@ -810,6 +810,8 @@ public class Test extends JFrame{
     CustAmount.add(btnHome4);
     btnHome4.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			lblNoteThisAtm.setText("NOTE: This ATM only returns 10, 20 and 50 euro bills.");
+			custom.setText("");
 			SwitchPanels(Home);
 			}	
 		});
@@ -868,12 +870,18 @@ public class Test extends JFrame{
 			
 			if(a >= b && options.getMax() >= b) {
 				bills = options.getOpties(b);
-				withdrawn = Integer.parseInt(custom.getText());
-				custom.setText("");
-				SwitchPanels(BiljetOpties);
+				
+				if(bills == null) lblNoteThisAtm.setText("Invalid amount, please enter a multiple of 10");
+				else {
+					withdrawn = Integer.parseInt(custom.getText());
+					custom.setText("");
+					SwitchPanels(BiljetOpties);				
+					lblNoteThisAtm.setText("NOTE: This ATM only returns 10, 20 and 50 euro bills.");
+				}
 			}
 			else {
-//				SwitchPanels(WaitingScreen);
+				if(a < b) lblNoteThisAtm.setText("Insufficient balance");
+				else if(options.getMax() < b) lblNoteThisAtm.setText("Insufficient bills");
 			}
 		}	
 	});
@@ -886,6 +894,8 @@ public class Test extends JFrame{
     CustAmount.add(btnAbort5);
     btnAbort5.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
+    		lblNoteThisAtm.setText("NOTE: This ATM only returns 10, 20 and 50 euro bills.");
+    		custom.setText("");
     		SwitchPanels(Welcome);
     		}	
 	    });
