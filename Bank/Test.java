@@ -1174,6 +1174,8 @@ public class Test extends JFrame{
 	
 	private void billButton(int amount, JButton button) {
 		if(options.getMax() >= amount  && Integer.parseInt(savings) >= amount) {
+			button.setBackground(new Color(255, 255, 255));
+			
 			button.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
@@ -1189,6 +1191,7 @@ public class Test extends JFrame{
 	
 	private void fast() {
 		if(options.getMax() >= 70 && Integer.parseInt(savings) >= 70) {
+			btnFast.setBackground(new Color(255, 255, 255));
 			btnFast.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					withdrawn = 70;
